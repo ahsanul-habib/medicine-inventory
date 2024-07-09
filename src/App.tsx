@@ -6,12 +6,13 @@ import { FaRegMoneyBillAlt, FaSearch } from "react-icons/fa";
 import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 import { IoKeyOutline, IoNotifications } from "react-icons/io5";
 import { TbReportAnalytics } from "react-icons/tb";
+import CreateBilling from './components/CreateBilling';
 function App() {
   const [dir,changeDir]=useState('billing');
 
 
   return (
-    <div className="min-h-screen w-full flex flex-row text-sm">
+    <div className="min-h-screen w-screen flex flex-row text-sm">
       <aside className="hidden w-40 md:w-56 bg-whites md:inline-block border-r-2 border-gray">
         <h2 className='text-center text-2xl font-bold py-3'>Medical Store</h2>
         <div className="flex flex-col px-4 text-gray-500">
@@ -39,6 +40,7 @@ function App() {
         </header>
         <section className="p-6 mb-20">
           {dir=='billing'&&<Billing/>}
+          {dir=='createbilling'&&<CreateBilling/>}
         </section>
       <div className='fixed flex justify-evenly bottom-0 h-16 w-full bg-white py-2 md:hidden'>
         <button  onClick={()=>changeDir('dashboard')} className={`bg-gray-300 aspect-square flex justify-center items-center py-2 rounded-2xl hover:bg-accent hover:text-white ${dir==='dashboard'?'bg-accent text-white':''}`}><VscDashboard className="w-7 h-7"/></button>
