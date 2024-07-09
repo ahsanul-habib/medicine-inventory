@@ -15,12 +15,12 @@ function App() {
       <aside className="hidden w-40 md:w-56 bg-whites md:inline-block border-r-2 border-gray">
         <h2 className='text-center text-2xl font-bold py-3'>Medical Store</h2>
         <div className="flex flex-col px-4 text-gray-500">
-          <button className={`flex flex-row my-3 gap-1 rounded-lg hover:text-white w-full p-2 hover:bg-accent pointer items-center ${dir==='dashboard'?'bg-accent text-white':''}`}><VscDashboard className="w-7 h-7"/>Dashboard</button>
-          <button className={`flex flex-row my-3 gap-1 rounded-lg hover:text-white w-full p-2 hover:bg-accent pointer items-center ${dir==='inventory'?'bg-accent text-white':''}`}><GoDatabase className="w-7 h-7"/>Inventory</button>
-          <button className={`flex flex-row my-3 gap-1 rounded-lg hover:text-white w-full p-2 hover:bg-accent pointer items-center ${dir==='billing'?'bg-accent text-white':''}`}><FaRegMoneyBillAlt className="w-7 h-7"/>Billing</button>
-          <button className={`flex flex-row my-3 gap-1 rounded-lg hover:text-white w-full p-2 hover:bg-accent pointer items-center ${dir==='createbilling'?'bg-accent text-white':''}`}><LiaFileInvoiceDollarSolid className="w-7 h-7"/>Create Billing</button>
-          <button className={`flex flex-row my-3 gap-1 rounded-lg hover:text-white w-full p-2 hover:bg-accent pointer items-center ${dir==='permissions'?'bg-accent text-white':''}`}><IoKeyOutline className="w-7 h-7"/>Permissions</button>
-          <button className={`flex flex-row my-3 gap-1 rounded-lg hover:text-white w-full p-2 hover:bg-accent pointer items-center ${dir==='reporting'?'bg-accent text-white':''}`}><TbReportAnalytics className="w-7 h-7"/>Reporting</button>
+          <button onClick={()=>changeDir('dashboard')} className={`flex flex-row my-3 gap-1 rounded-lg hover:text-white w-full p-2 hover:bg-accent pointer items-center ${dir==='dashboard'?'bg-accent text-white':''}`}><VscDashboard className="w-7 h-7"/>Dashboard</button>
+          <button onClick={()=>changeDir('inventory')} className={`flex flex-row my-3 gap-1 rounded-lg hover:text-white w-full p-2 hover:bg-accent pointer items-center ${dir==='inventory'?'bg-accent text-white':''}`}><GoDatabase className="w-7 h-7"/>Inventory</button>
+          <button onClick={()=>changeDir('billing')} className={`flex flex-row my-3 gap-1 rounded-lg hover:text-white w-full p-2 hover:bg-accent pointer items-center ${dir==='billing'?'bg-accent text-white':''}`}><FaRegMoneyBillAlt className="w-7 h-7"/>Billing</button>
+          <button onClick={()=>changeDir('createbilling')} className={`flex flex-row my-3 gap-1 rounded-lg hover:text-white w-full p-2 hover:bg-accent pointer items-center ${dir==='createbilling'?'bg-accent text-white':''}`}><LiaFileInvoiceDollarSolid className="w-7 h-7"/>Create Billing</button>
+          <button onClick={()=>changeDir('permissions')} className={`flex flex-row my-3 gap-1 rounded-lg hover:text-white w-full p-2 hover:bg-accent pointer items-center ${dir==='permissions'?'bg-accent text-white':''}`}><IoKeyOutline className="w-7 h-7"/>Permissions</button>
+          <button onClick={()=>changeDir('reporting')} className={`flex flex-row my-3 gap-1 rounded-lg hover:text-white w-full p-2 hover:bg-accent pointer items-center ${dir==='reporting'?'bg-accent text-white':''}`}><TbReportAnalytics className="w-7 h-7"/>Reporting</button>
 
         </div>
       </aside>
@@ -38,15 +38,15 @@ function App() {
           </div>        
         </header>
         <section className="p-6 mb-20">
-          <Billing/>
+          {dir=='billing'&&<Billing/>}
         </section>
       <div className='fixed flex justify-evenly bottom-0 h-16 w-full bg-white py-2 md:hidden'>
-        <button className={`bg-gray-300 aspect-square flex justify-center items-center py-2 rounded-2xl hover:bg-accent hover:text-white ${dir==='dashboard'?'bg-accent text-white':''}`}><VscDashboard className="w-7 h-7"/></button>
-        <button className={`bg-gray-300 aspect-square flex justify-center items-center py-2 rounded-2xl hover:bg-accent hover:text-white ${dir==='inventory'?'bg-accent text-white':''}`}><GoDatabase className="w-7 h-7"/></button>
-        <button className={`bg-gray-300 aspect-square flex justify-center items-center py-2 rounded-2xl hover:bg-accent hover:text-white ${dir==='billing'?'bg-accent text-white':''}`}><FaRegMoneyBillAlt className="w-7 h-7"/></button>
-        <button className={`bg-gray-300 aspect-square flex justify-center items-center py-2 rounded-2xl hover:bg-accent hover:text-white ${dir==='createbilling'?'bg-accent text-white':''}`}><LiaFileInvoiceDollarSolid className="w-7 h-7"/></button>
-        <button className={`bg-gray-300 aspect-square flex justify-center items-center py-2 rounded-2xl hover:bg-accent hover:text-white ${dir==='permissions'?'bg-accent text-white':''}`}><IoKeyOutline className="w-7 h-7"/></button>
-        <button className={`bg-gray-300 aspect-square flex justify-center items-center py-2 rounded-2xl hover:bg-accent hover:text-white ${dir==='reporting'?'bg-accent text-white':''}`}><TbReportAnalytics className="w-7 h-7"/></button>
+        <button  onClick={()=>changeDir('dashboard')} className={`bg-gray-300 aspect-square flex justify-center items-center py-2 rounded-2xl hover:bg-accent hover:text-white ${dir==='dashboard'?'bg-accent text-white':''}`}><VscDashboard className="w-7 h-7"/></button>
+        <button  onClick={()=>changeDir('inventory')} className={`bg-gray-300 aspect-square flex justify-center items-center py-2 rounded-2xl hover:bg-accent hover:text-white ${dir==='inventory'?'bg-accent text-white':''}`}><GoDatabase className="w-7 h-7"/></button>
+        <button  onClick={()=>changeDir('billing')} className={`bg-gray-300 aspect-square flex justify-center items-center py-2 rounded-2xl hover:bg-accent hover:text-white ${dir==='billing'?'bg-accent text-white':''}`}><FaRegMoneyBillAlt className="w-7 h-7"/></button>
+        <button  onClick={()=>changeDir('createbilling')} className={`bg-gray-300 aspect-square flex justify-center items-center py-2 rounded-2xl hover:bg-accent hover:text-white ${dir==='createbilling'?'bg-accent text-white':''}`}><LiaFileInvoiceDollarSolid className="w-7 h-7"/></button>
+        <button  onClick={()=>changeDir('permissions')} className={`bg-gray-300 aspect-square flex justify-center items-center py-2 rounded-2xl hover:bg-accent hover:text-white ${dir==='permissions'?'bg-accent text-white':''}`}><IoKeyOutline className="w-7 h-7"/></button>
+        <button  onClick={()=>changeDir('reporting')} className={`bg-gray-300 aspect-square flex justify-center items-center py-2 rounded-2xl hover:bg-accent hover:text-white ${dir==='reporting'?'bg-accent text-white':''}`}><TbReportAnalytics className="w-7 h-7"/></button>
       </div>
       </main>
 
